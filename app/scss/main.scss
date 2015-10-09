@@ -1,0 +1,38 @@
+// ##### Main Styles for First Gulp Project ##### //
+
+@import "normalize";
+@import "print";
+
+.testing-sass {
+  width: percentage(5/7);
+}
+
+body {
+	background-color: green;
+}
+
+.disappear-container {
+	display: flex;
+}
+
+.disappear {
+	margin: 0 20px 0 0;
+	cursor: pointer;
+}
+
+html.no-flexbox .disappear {
+	float: left;
+	color: purple;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.canvas {
+	border: none;
+}
+
+.touchevents {
+	border: none;
+}
