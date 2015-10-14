@@ -31,6 +31,16 @@
 		<p class="disappear bold">And why not this text too.</p>
 
 	</div>
+
+	<!-- The img below should throw a HTML validation error via the w3cjs task ("sizes" cannot be empty): -->
+
+	<p>
+		<img
+	    src="/path1/"
+	    srcset="/path1/ 60w, /path2/ 50w"
+	    sizes=""
+	    alt="(image alt text)">
+	</p>
 	
 </body>
 </html>
