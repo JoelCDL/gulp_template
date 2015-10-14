@@ -16,6 +16,7 @@ var cache = require('gulp-cache');
 var del = require('del');
 var modernizr = require('gulp-modernizr');
 var runSequence = require('run-sequence');
+var w3cjs = require('gulp-w3cjs');
 
 
 // Check that gulp is working by running "gulp hello" at the command line:
@@ -55,7 +56,7 @@ gulp.task('modernizr', function() {
 gulp.task('sass', function() {
   return gulp.src('app/scss/**/*.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass())
+    .pipe(sass.sync().on('error', sass.logError))
     .pipe(autoprefixer('last 2 versions'))
     .pipe(sourcemaps.write('sourcemaps'))
     .pipe(gulp.dest('app/css'))
@@ -119,3 +120,9 @@ gulp.task('clean', function(callback) {
   del('dist');
   return cache.clearAll(callback);
 })
+
+// Validate HTML:
+gulp.task('w3cjs', function () {
+  gulp.src('app/*.html')
+    .pipe(w3cjs())
+});
