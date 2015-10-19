@@ -17,6 +17,7 @@ var del = require('del');
 var modernizr = require('gulp-modernizr');
 var runSequence = require('run-sequence');
 var w3cjs = require('gulp-w3cjs');
+var scsslint = require('gulp-scss-lint');
 
 
 // Check that gulp is working by running "gulp hello" at the command line:
@@ -126,3 +127,10 @@ gulp.task('w3cjs', function () {
   gulp.src('app/*.html')
     .pipe(w3cjs())
 });
+
+// Lint SCSS files:
+gulp.task('scss-lint', function() {
+  return gulp.src('app/scss/**/*.scss')
+    .pipe(scsslint());
+});
+
