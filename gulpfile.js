@@ -16,7 +16,7 @@ var cache = require('gulp-cache');
 var del = require('del');
 var modernizr = require('gulp-modernizr');
 var runSequence = require('run-sequence');
-var w3cjs = require('gulp-w3cjs');
+var validateHTML = require('gulp-w3cjs');
 var scsslint = require('gulp-scss-lint');
 
 
@@ -68,8 +68,9 @@ gulp.task('sass', function() {
 
 
 // Watch sass, html, and js and reload browser if any changes:
-gulp.task('watch', ['browserSync', 'sass'], function (){
-  gulp.watch('app/scss/**/*.scss', ['sass']); 
+gulp.task('watch', ['browserSync', 'sass', 'validateHTML'], function (){
+  gulp.watch('app/scss/**/*.scss', ['sass']);
+  gulp.watch('app/*.html', ['validateHTML']);
   gulp.watch('app/*.html', browserSync.reload); 
   gulp.watch('app/js/**/*.js', browserSync.reload); 
 });
@@ -123,9 +124,9 @@ gulp.task('clean', function(callback) {
 })
 
 // Validate HTML:
-gulp.task('w3cjs', function () {
+gulp.task('validateHTML', function () {
   gulp.src('app/*.html')
-    .pipe(w3cjs())
+    .pipe(validateHTML())
 });
 
 // Lint SCSS files:
