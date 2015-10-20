@@ -132,6 +132,8 @@ gulp.task('validateHTML', function () {
 // Lint SCSS files:
 gulp.task('scss-lint', function() {
   return gulp.src('app/scss/**/*.scss')
-    .pipe(scsslint());
+    .pipe(scsslint({
+      'config': 'scss-lint-config.yml'
+    }));
 });
 
