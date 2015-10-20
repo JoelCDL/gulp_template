@@ -1,7 +1,7 @@
 // ##### Test Styles for Gulp Template ##### //
 
-@import "normalize";
-@import "print";
+@import '/vendor/normalize';
+@import 'print';
 
 .testing-sass {
   width: percentage(5/7);
