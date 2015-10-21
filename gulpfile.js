@@ -18,6 +18,7 @@ var modernizr = require('gulp-modernizr');
 var runSequence = require('run-sequence');
 var validateHTML = require('gulp-w3cjs');
 var scsslint = require('gulp-scss-lint');
+var jshint = require('gulp-jshint');
 
 
 // Check that gulp is working by running "gulp hello" at the command line:
@@ -138,3 +139,8 @@ gulp.task('scss-lint', function() {
     }));
 });
 
+gulp.task('js-lint', function() {
+  return gulp.src('app/js/**/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'))
+});
