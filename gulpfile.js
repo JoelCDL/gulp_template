@@ -140,7 +140,7 @@ gulp.task('scss-lint', function() {
 });
 
 gulp.task('js-lint', function() {
-  return gulp.src('app/js/**/*.js')
+  return gulp.src(['app/js/**/*.js', '!app/js/modernizr-custombuild.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
 });
