@@ -1,10 +1,10 @@
 // ##### Test Styles for Gulp Template ##### //
 
-@import '/vendor/normalize';
+@import 'vendor/normalize';
 @import 'print';
 
-$bg-color: '#009933';
-$flexbox-color: '#cc00cc';
+$bg-color: #093;
+$flexbox-color: #c0c;
 
 .testing-sass {
   width: percentage(5 / 7);
