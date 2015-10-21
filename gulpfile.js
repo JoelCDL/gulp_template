@@ -38,7 +38,7 @@ gulp.task('default', function (callback) {
 // Run the build process by running "gulp build" at the command line:
 gulp.task('build', function (callback) {
   runSequence('clean', 
-    ['validateHTML', 'scss-lint', 'sass', 'useref', 'images', 'fonts'],
+    ['validateHTML', 'scss-lint', 'js-lint', 'sass', 'useref', 'images', 'fonts'],
     callback
   )
 })
@@ -69,9 +69,10 @@ gulp.task('sass', function() {
 
 
 // Watch sass, html, and js and reload browser if any changes:
-gulp.task('watch', ['browserSync', 'sass', 'scss-lint', 'validateHTML'], function (){
+gulp.task('watch', ['browserSync', 'sass', 'scss-lint', 'js-lint', 'validateHTML'], function (){
   gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch('app/scss/**/*.scss', ['scss-lint']);
+  gulp.watch('app/js/**/*.js', ['js-lint']);
   gulp.watch('app/*.html', ['validateHTML']);
   gulp.watch('app/*.html', browserSync.reload); 
   gulp.watch('app/js/**/*.js', browserSync.reload); 
