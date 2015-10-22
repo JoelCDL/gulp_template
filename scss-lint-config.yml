@@ -119,6 +119,7 @@ linters:
     enabled: true
     ignore_unspecified: false
     min_properties: 2
+    order: smacss # see https://github.com/brigade/scss-lint/tree/master/data/property-sort-orders for other values. For alpha order, leave blank.
     separate_groups: false
 
   PropertySpelling:

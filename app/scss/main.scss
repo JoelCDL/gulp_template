@@ -19,13 +19,13 @@ body {
 }
 
 .disappear {
-	cursor: pointer;
 	margin: 0 20px 0 0;
+	cursor: pointer;
 }
 
 .no-flexbox .disappear {
-	color: $flexbox-color;
 	float: left;
+	color: $flexbox-color;
 }
 
 .bold {
