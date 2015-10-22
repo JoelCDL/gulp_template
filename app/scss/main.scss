@@ -5,6 +5,7 @@
 
 $bg-color: #093;
 $flexbox-color: #c0c;
+$random-color: #ccc;
 
 .testing-sass {
   width: percentage(5 / 7);
@@ -28,7 +29,43 @@ body {
 	color: $flexbox-color;
 }
 
-// These classes aren't used but are a test to confirm they are getting caught by modernizr, when run
+// This class isn't used but tests the scss-lint's property sort order (see scss-lint-config.yml):
+
+.property {
+	// Display
+  display: block;
+
+	// Box
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+	width: 100px;
+  height: 100px;
+  margin: 20px;
+  padding: 10px;
+
+  // Borders
+  border: 1px solid $random-color;
+
+  // Colors
+  background: $random-color;
+  color: $random-color;
+
+  // Text
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: right;
+
+  // Other
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+}
+
+// These classes aren't used but are a test to confirm they are getting caught by modernizr, when run:
 
 .canvas {
 	border: none;
