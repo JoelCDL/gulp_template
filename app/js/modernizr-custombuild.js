@@ -1,6 +1,6 @@
 /*!
  * modernizr v3.0.0
- * Build http://modernizr.com/download?-canvas-flexbox-touchevents-dontmin
+ * Build http://modernizr.com/download?-canvas-flexbox-svg-touchevents-dontmin
  *
  * Copyright (c)
  *  Faruk Ates
@@ -273,6 +273,31 @@ Detects support for the `<canvas>` element for 2D drawing.
     var elem = createElement('canvas');
     return !!(elem.getContext && elem.getContext('2d'));
   });
+
+/*!
+{
+  "name": "SVG",
+  "property": "svg",
+  "caniuse": "svg",
+  "tags": ["svg"],
+  "authors": ["Erik Dahlstrom"],
+  "polyfills": [
+    "svgweb",
+    "raphael",
+    "amplesdk",
+    "canvg",
+    "svg-boilerplate",
+    "sie",
+    "dojogfx",
+    "fabricjs"
+  ]
+}
+!*/
+/* DOC
+Detects support for SVG in `<embed>` or `<object>` elements.
+*/
+
+  Modernizr.addTest('svg', !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect);
 
 
   /**

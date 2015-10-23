@@ -71,6 +71,10 @@ body {
 
 // These classes aren't used but are a test to confirm they are getting caught by modernizr, when run:
 
+.svg {
+  display: block;
+}
+
 .canvas {
 	border: none;
 }
