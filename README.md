@@ -1,6 +1,6 @@
-# Gulp Build Template
+# Gulp Template
 
-A basic starter gulp toolkit for front-end web development.
+A basic gulp toolkit for front-end web development.
 
 Inspired by https://css-tricks.com/gulp-for-beginners
 
