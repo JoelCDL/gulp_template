@@ -2,21 +2,25 @@
 
 A basic starter gulp toolkit for front-end web development.
 
-## Tools Featured
+Inspired by https://css-tricks.com/gulp-for-beginners
 
-1. Process sass and add sourcemaps
+## Plugins Included
 
-2. Spin up a local browser with the index.html page at http://localhost:3000/
+* Process Sass and add sourcemaps for debugging
 
-3. Watch sass, html, and js and reload browser if any changes
+* Start a local browser with the index page at http://localhost:3000/
 
-4. Minify and uglify css and js from paths within comment tags in html
+* Watch Sass, HTML, and js and reload browser if any changes
 
-5. Compress images
+* Concatonate and minify CSS and JS from paths within 'build' comments in HTML
 
-6. Copy font files from "app" directory to "dist" directory during build process
+* Compress images during build process
 
-7. Generate a custom modernizr file based off of classes found in CSS
+* Copy all files from development into a distribution  directory during the build process
+
+* Generate a custom Modernizr file based off of classes found in CSS
+
+* Lint Sass, JS, and HTML immediately upon any changes, including during the build process
 
 ## Requirements
 
@@ -24,6 +28,22 @@ A basic starter gulp toolkit for front-end web development.
 
 2. npm
 
-3. See "Getting Started" - https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md
+3. ruby (for the scss-lint plugin)
 
-4. Install each gulp task listed within gulpfile.js into your project, as in $ npm install --save-dev gulp-sass
+## Installation
+
+1. Clone this repo and cd to it on your machine
+
+2. Run `$ npm update --save-dev` to install all gulp plugins
+
+3. Run `$ gem install scss_lint` (for the scss-lint plugin)
+
+## Running
+
+* Confirm that gulp system is installed: `$ gulp hello` (should return "Hello there!" in your console)
+
+* For development: `$ gulp`
+
+* To create a build: `$ gulp build`
+
+* To build a custom modernizr file based off of classes found in CSS: `$ gulp modernizr`
