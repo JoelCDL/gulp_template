@@ -12,7 +12,7 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 * Watch Sass, HTML, and js and reload browser if any changes
 
-* Concatonate and minify CSS and JS from paths within 'build' comments in HTML
+* Concatenate and minify CSS and JS from paths within 'build' comments in HTML
 
 * Compress images during build process
 
