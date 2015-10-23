@@ -24,11 +24,11 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 ## Requirements
 
-1. node.js
+* node.js
 
-2. npm
+* npm
 
-3. ruby (for the scss-lint plugin)
+* ruby (for the scss-lint plugin)
 
 ## Installation
 
