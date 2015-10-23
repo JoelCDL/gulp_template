@@ -1,6 +1,6 @@
 // ##### Gulp Tasks #####
 
-// ***** Modified from https://css-tricks.com/gulp-for-beginners/ ***** //
+// ***** Inspired by https://css-tricks.com/gulp-for-beginners/ ***** //
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
@@ -23,7 +23,7 @@ var jshint = require('gulp-jshint');
 
 // Check that gulp is working by running "gulp hello" at the command line:
 gulp.task('hello', function() {
-  console.log('Hello Joel!');
+  console.log('Hello there!');
 });
 
 
