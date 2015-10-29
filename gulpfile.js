@@ -31,7 +31,7 @@ gulp.task('hello', function() {
 
 // Run the dev process by running "gulp" at the command line:
 gulp.task('default', function (callback) {
-  runSequence(['include', 'sass', 'browserSync', 'watch'],
+  runSequence(['sass', 'browserSync', 'watch'],
     callback
   )
 })
@@ -72,6 +72,7 @@ gulp.task('sass', function() {
 
 // Watch sass, html, and js and reload browser if any changes:
 gulp.task('watch', ['browserSync', 'sass', 'scss-lint', 'js-lint', 'validateHTML'], function (){
+  // gulp.watch('app/*.html', ['include']);
   gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch('app/scss/**/*.scss', ['scss-lint']);
   gulp.watch('app/js/**/*.js', ['js-lint']);
