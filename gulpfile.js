@@ -19,6 +19,7 @@ var runSequence = require('run-sequence');
 var validateHTML = require('gulp-w3cjs');
 var scsslint = require('gulp-scss-lint');
 var jshint = require('gulp-jshint');
+var lbInclude = require('gulp-lb-include');
 
 
 // Check that gulp is working by running "gulp hello" at the command line:
@@ -29,7 +30,7 @@ gulp.task('hello', function() {
 
 // Run the dev process by running "gulp" at the command line:
 gulp.task('default', function (callback) {
-  runSequence(['sass', 'browserSync', 'watch'],
+  runSequence(['include', 'sass', 'browserSync', 'watch'],
     callback
   )
 })
@@ -70,6 +71,7 @@ gulp.task('sass', function() {
 
 // Watch sass, html, and js and reload browser if any changes:
 gulp.task('watch', ['browserSync', 'sass', 'scss-lint', 'js-lint', 'validateHTML'], function (){
+  // gulp.watch('app/*.html', ['include']);
   gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch('app/scss/**/*.scss', ['scss-lint']);
   gulp.watch('app/js/**/*.js', ['js-lint']);
@@ -128,7 +130,7 @@ gulp.task('clean', function(callback) {
 
 // Validate HTML:
 gulp.task('validateHTML', function () {
-  gulp.src('app/*.html')
+  gulp.src(['app/*.html', '!app/includes*.html'])
     .pipe(validateHTML())
 });
 
@@ -144,4 +146,10 @@ gulp.task('js-lint', function() {
   return gulp.src(['app/js/**/*.js', '!app/js/modernizr-custombuild.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
+});
+
+gulp.task('include', function () {
+  return gulp.src('app/**/*.html')
+    .pipe(lbInclude())
+    // .pipe(gulp.dest('app'));
 });
