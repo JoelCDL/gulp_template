@@ -20,6 +20,7 @@ var validateHTML = require('gulp-w3cjs');
 var scsslint = require('gulp-scss-lint');
 var jshint = require('gulp-jshint');
 var lbInclude = require('gulp-lb-include');
+var ssi = require('browsersync-ssi');
 
 
 // Check that gulp is working by running "gulp hello" at the command line:
@@ -71,7 +72,6 @@ gulp.task('sass', function() {
 
 // Watch sass, html, and js and reload browser if any changes:
 gulp.task('watch', ['browserSync', 'sass', 'scss-lint', 'js-lint', 'validateHTML'], function (){
-  // gulp.watch('app/*.html', ['include']);
   gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch('app/scss/**/*.scss', ['scss-lint']);
   gulp.watch('app/js/**/*.js', ['js-lint']);
@@ -85,7 +85,12 @@ gulp.task('watch', ['browserSync', 'sass', 'scss-lint', 'js-lint', 'validateHTML
 gulp.task('browserSync', function() {
   browserSync({
     server: {
-      baseDir: 'app'
+      baseDir: 'app',
+      middleware: ssi({
+        baseDir: __dirname + '/app',
+        ext: '.html',
+        version: '1.4.0'
+      })
     },
   })
 })
@@ -101,6 +106,7 @@ gulp.task('useref', function(){
     .pipe(gulpIf('*.js', uglify())) // Uglifies only if it's a Javascript file
     .pipe(assets.restore())
     .pipe(useref())
+    .pipe(lbInclude())
     .pipe(gulp.dest('dist'))
 });
 
@@ -146,10 +152,4 @@ gulp.task('js-lint', function() {
   return gulp.src(['app/js/**/*.js', '!app/js/modernizr-custombuild.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
-});
-
-gulp.task('include', function () {
-  return gulp.src('app/**/*.html')
-    .pipe(lbInclude())
-    // .pipe(gulp.dest('app'));
 });
