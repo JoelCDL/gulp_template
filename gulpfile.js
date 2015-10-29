@@ -72,7 +72,6 @@ gulp.task('sass', function() {
 
 // Watch sass, html, and js and reload browser if any changes:
 gulp.task('watch', ['browserSync', 'sass', 'scss-lint', 'js-lint', 'validateHTML'], function (){
-  // gulp.watch('app/*.html', ['include']);
   gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch('app/scss/**/*.scss', ['scss-lint']);
   gulp.watch('app/js/**/*.js', ['js-lint']);
