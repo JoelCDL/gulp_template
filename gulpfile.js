@@ -140,7 +140,7 @@ gulp.task('validateHTML', function () {
     .pipe(validateHTML())
 });
 
-// Lint SCSS files:
+// Lint Sass:
 gulp.task('scss-lint', function() {
   return gulp.src(['app/scss/**/*.scss', '!app/scss/vendor/**/*.scss'])
     .pipe(scsslint({
@@ -148,6 +148,7 @@ gulp.task('scss-lint', function() {
     }));
 });
 
+// Lint JavaScript:
 gulp.task('js-lint', function() {
   return gulp.src(['app/js/**/*.js', '!app/js/modernizr-custombuild.js'])
     .pipe(jshint())
