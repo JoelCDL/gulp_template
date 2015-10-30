@@ -75,7 +75,6 @@ gulp.task('watch', ['browserSync', 'sass', 'scss-lint', 'js-lint'], function (){
   gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch('app/scss/**/*.scss', ['scss-lint']);
   gulp.watch('app/js/**/*.js', ['js-lint']);
-  gulp.watch('app/**/*.html', ['validateHTML']);
   gulp.watch('app/**/*.html', browserSync.reload); 
   gulp.watch('app/js/**/*.js', browserSync.reload); 
 });
