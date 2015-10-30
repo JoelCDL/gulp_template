@@ -40,7 +40,7 @@ gulp.task('default', function (callback) {
 // Run the build process by running "gulp build" at the command line:
 gulp.task('build', function (callback) {
   runSequence('clean', 
-    ['validateHTML', 'scss-lint', 'js-lint', 'sass', 'useref', 'images', 'fonts'],
+    ['scss-lint', 'js-lint', 'sass', 'useref', 'images', 'fonts'],
     callback
   )
 })
@@ -71,7 +71,7 @@ gulp.task('sass', function() {
 
 
 // Watch sass, html, and js and reload browser if any changes:
-gulp.task('watch', ['browserSync', 'sass', 'scss-lint', 'js-lint', 'validateHTML'], function (){
+gulp.task('watch', ['browserSync', 'sass', 'scss-lint', 'js-lint'], function (){
   gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch('app/scss/**/*.scss', ['scss-lint']);
   gulp.watch('app/js/**/*.js', ['js-lint']);
@@ -100,13 +100,13 @@ gulp.task('browserSync', function() {
 gulp.task('useref', function(){
   var assets = useref.assets();
 
-  return gulp.src('app/*.html')
+  return gulp.src(['app/**/*.html', '!app/includes/*'])
     .pipe(assets)
     .pipe(gulpIf('*.css', minifyCSS())) // Minifies only if it's a CSS file
     .pipe(gulpIf('*.js', uglify())) // Uglifies only if it's a Javascript file
     .pipe(assets.restore())
     .pipe(useref())
-    .pipe(lbInclude())
+    .pipe(lbInclude()) // Process <!--#include file="" --> statements
     .pipe(gulp.dest('dist'))
 });
 
@@ -134,9 +134,9 @@ gulp.task('clean', function(callback) {
   return cache.clearAll(callback);
 })
 
-// Validate HTML:
+// Validate build HTML:
 gulp.task('validateHTML', function () {
-  gulp.src(['app/*.html', '!app/includes*.html'])
+  gulp.src('dist/**/*.html')
     .pipe(validateHTML())
 });
 
