@@ -10,17 +10,21 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 * Start a local browser with the index page at http://localhost:3000/
 
-* Watch Sass, HTML, and js and reload browser if any changes
+* Reload HTML, CSS, and JavaScript in the browser immediately upon any changes during development
 
-* Concatenate and minify CSS and JS from paths within 'build' comments in HTML
+* Lint JavaScript and Sass immediately upon any changes during development, including during the build process
+
+* Concatenate and minify CSS and JavaScript during the build process
 
 * Compress images during build process
 
-* Copy all files from development into a distribution  directory during the build process
+* Copy all files from development into a distribution directory during the build process
+
+* Include HTML fragments using `<!--#include file="" -->` statements
 
 * Generate a custom Modernizr file based off of classes found in CSS
 
-* Lint Sass, JS, and HTML immediately upon any changes, including during the build process
+* Validate HTML after the build process
 
 ## Requirements
 
@@ -42,8 +46,10 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 * Confirm that gulp system is installed: `$ gulp hello` (should return "Hello there!" in your console)
 
-* For development: `$ gulp`
+* During development, run `$ gulp`
 
-* To create a build: `$ gulp build`
+* To create a build, run `$ gulp build`
 
-* To build a custom modernizr file based off of classes found in CSS: `$ gulp modernizr`
+* To update the custom modernizr file based off of classes found in CSS, run `$ gulp modernizr` anytime after introducing new CSS features referenced in the [Modernizr development build](https://modernizr.com)
+
+* To validate HTML using the W3C validation service, run `$ gulp validateHTML` after creating a build
