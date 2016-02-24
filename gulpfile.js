@@ -21,6 +21,7 @@ var scsslint = require('gulp-scss-lint');
 var jshint = require('gulp-jshint');
 var lbInclude = require('gulp-lb-include');
 var ssi = require('browsersync-ssi');
+var sftp = require('gulp-sftp');
 
 
 // Check that gulp is working by running "gulp hello" at the command line:
@@ -148,4 +149,15 @@ gulp.task('js-lint', function() {
   return gulp.src(['app/js/**/*.js', '!app/js/modernizr-custombuild.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
+});
+
+// Deploy a build via SFTP to a web server:
+gulp.task('deploy', function () {
+  return gulp.src('dist/**')
+    .pipe(sftp({
+      host: 'webprod.cdlib.org',
+      remotePath: '/apps/webprod/apache/htdocs/gulptemplate/',
+      authFile: 'gulp-sftp-key.json', // keep this file out of public repos by listing it within .gitignore, .hgignore, etc.
+      auth: 'keyMain'
+    }));
 });
