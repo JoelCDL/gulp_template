@@ -95,15 +95,11 @@ gulp.task('browserSync', function() {
 })
 
 
-// Minify and uglify css and js from paths within comment tags in html:
+// Minify CSS, uglify JS from paths within HTML comment tags; include files:
 gulp.task('useref', function(){
-  var assets = useref.assets();
-
   return gulp.src(['app/**/*.html', '!app/includes/*'])
-    .pipe(assets)
-    .pipe(gulpIf('*.css', minifyCSS())) // Minifies only if it's a CSS file
-    .pipe(gulpIf('*.js', uglify())) // Uglifies only if it's a Javascript file
-    .pipe(assets.restore())
+    .pipe(gulpIf('*.css', minifyCSS()))
+    .pipe(gulpIf('*.js', uglify()))
     .pipe(useref())
     .pipe(lbInclude()) // Process <!--#include file="" --> statements
     .pipe(gulp.dest('dist'))
