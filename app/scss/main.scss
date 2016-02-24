@@ -3,7 +3,7 @@
 @import 'vendor/normalize';
 @import 'print';
 
-$bg-color: #093;
+$bg-color: #797;
 $flexbox-color: #c0c;
 $random-color: #ccc;
 
@@ -12,10 +12,17 @@ $random-color: #ccc;
 }
 
 body {
-	background-color: $bg-color;
+	padding: 20px;
+  background-color: $bg-color;
 }
 
-.jquery-test {
+.testing-sass2 {
+  &::after {
+    content: 'Yes';
+  }
+}
+
+.jquery-test-pass {
 	display: none;
 }
 
