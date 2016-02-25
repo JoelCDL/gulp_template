@@ -89,3 +89,7 @@ body {
 .touchevents {
 	border: none;
 }
+
+.no-touchevents .test-modernizr {
+  display: none;
+}
