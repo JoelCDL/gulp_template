@@ -1,7 +1,7 @@
 {
   "name": "gulp_test_project",
   "version": "1.0.0",
-  "description": "",
+  "description": "A basic gulp toolkit for front-end web development.",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
