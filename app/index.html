@@ -14,9 +14,9 @@
 
 	<h1>Test Page for Gulp Template</h1>
 
-	<p><a href="">View this project on GitHub</a> for more information.</p>
+	<p>All of the tests below should pass while viewing the page in your browser as a live app (after running "gulp") and as a finished build (after running "gulp build")</p>
 
-	<p>All of the tests below should pass while viewing the page as a live app (after running "gulp") and as a finished build (after running "gulp build")</p>
+	<p><a href="https://github.com/JoelCDL/gulp_template">View this project on GitHub</a> for more information.</p>
 
 	<h2>Feature Tests</h2>
 
@@ -32,7 +32,7 @@
 
 	<p>Custom jQuery is <span class="jquery-test-fail">not</span> working from script #1.</p>
 
-	<p class="disappear">If clicking this text makes it disappear, then jQuery is working from script #2.</p>
+	<p class="disappear">If clicking this text makes it disappear, then script #2 is loading.</p>
 
 	<p>After a build is created, both scripts above will be concatenated into one and should still work.</p>
 
@@ -52,7 +52,7 @@
 
 	<h3>Modernizr</h3>
 
-	<p>Modernizr has <span class="test-modernizr">not</span> created the "no-touchevents" class in the html element for use in styling alternatives to touchevent features.</p>
+	<p>For screens that don't feature touch event capabilities, Modernizr is currently <span class="test-modernizr">not</span> presenting the "no-touchevents" class on the html element for use in styling alternatives to touch event features.</p>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<!-- build:js js/custom.min.js -->
