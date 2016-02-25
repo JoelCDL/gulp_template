@@ -18,6 +18,8 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 * Compress images during build process
 
+* Combine SVG files into one and reference them within HTML
+
 * Copy all files from a development directory into a distribution directory during the build process
 
 * Include HTML fragments using `<!--#include file="" -->` statements
@@ -53,6 +55,8 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 * To create a build for a web server, run `$ gulp build`
 
 * To deploy a build to a web server, run `$ gulp deploy`
+
+* To combine SVG files into one, run `$ gulp svgstore`
 
 * To update the custom modernizr file based off of classes found in CSS, run `$ gulp modernizr` anytime after introducing new CSS features referenced in the [Modernizr development build](https://modernizr.com)
 
