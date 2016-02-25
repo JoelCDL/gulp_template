@@ -44,7 +44,7 @@ gulp.task('default', function (callback) {
 // Run the build process by running "gulp build" at the command line:
 gulp.task('build', function (callback) {
   runSequence('clean', 
-    ['scss-lint', 'js-lint', 'sass', 'useref', 'images', 'fonts'],
+    ['fonts', 'scss-lint', 'js-lint', 'sass', 'useref', 'images' ],
     callback
   )
 })
