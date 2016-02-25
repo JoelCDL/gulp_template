@@ -18,7 +18,7 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 * Compress images during build process
 
-* Combine SVG files into one and reference them within HTML
+* Combine SVG files into one and reference them individually within HTML
 
 * Copy all files from a development directory into a distribution directory during the build process
 
