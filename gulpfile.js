@@ -1,4 +1,4 @@
-// ##### Gulp Tasks #####
+// ##### Gulp Toolkit #####
 
 // ***** Inspired by https://css-tricks.com/gulp-for-beginners/ ***** //
 
@@ -10,9 +10,8 @@ var browserSync = require('browser-sync');
 var useref = require('gulp-useref');
 var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
-var minifyCSS = require('gulp-minify-css');
+var minifyCSS = require('gulp-clean-css');
 var imagemin = require('gulp-imagemin');
-var cache = require('gulp-cache');
 var del = require('del');
 var modernizr = require('gulp-modernizr');
 var runSequence = require('run-sequence');
@@ -22,9 +21,8 @@ var jshint = require('gulp-jshint');
 var lbInclude = require('gulp-lb-include');
 var ssi = require('browsersync-ssi');
 var sftp = require('gulp-sftp');
-var svgstore = require('gulp-svgstore');
-var svgmin = require('gulp-svgmin');
-var path = require('path');
+var postcss = require('gulp-postcss');
+var assets = require('postcss-assets');
 
 
 // Check that gulp is working by running "gulp hello" at the command line:
@@ -44,7 +42,7 @@ gulp.task('default', function (callback) {
 // Run the build process by running "gulp build" at the command line:
 gulp.task('build', function (callback) {
   runSequence('clean', 
-    ['fonts', 'scss-lint', 'js-lint', 'sass', 'useref', 'images' ],
+    ['scss-lint', 'js-lint', 'sass', 'useref'],
     callback
   )
 })
@@ -60,12 +58,15 @@ gulp.task('modernizr', function() {
 });
 
 
-// Process sass and add sourcemaps:
+// Process sass to css, add sourcemaps, inline font & image files into css, and reload browser:
 gulp.task('sass', function() {
   return gulp.src('app/scss/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass.sync().on('error', sass.logError))
     .pipe(autoprefixer('last 2 versions'))
+    .pipe(postcss([assets({
+      loadPaths: ['fonts/', 'images/']
+    })]))
     .pipe(sourcemaps.write('sourcemaps'))
     .pipe(gulp.dest('app/css'))
     .pipe(browserSync.reload({
@@ -99,32 +100,23 @@ gulp.task('browserSync', function() {
 })
 
 
-// Minify CSS, uglify JS from paths within HTML comment tags; include files:
+// Minify CSS, uglify JS, and concatenate files from paths within HTML comment tags; include files:
 gulp.task('useref', function(){
   return gulp.src(['app/**/*.html', '!app/includes/*'])
+    .pipe(useref())
     .pipe(gulpIf('*.css', minifyCSS()))
     .pipe(gulpIf('*.js', uglify()))
-    .pipe(useref())
     .pipe(lbInclude()) // Process <!--#include file="" --> statements
     .pipe(gulp.dest('dist'))
 });
 
 
-// Compress images:
-gulp.task('images', function(){
-  return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
-  .pipe(cache(imagemin({ // Caching images that ran through imagemin
-      interlaced: true
-    })))
-  .pipe(gulp.dest('dist/images'))
+// Minify images:
+gulp.task('minify-images', function(){
+  return gulp.src('app/images/**')
+  .pipe(imagemin())
+  .pipe(gulp.dest('app/images'))
 });
-
-
-// Copy font files from "app" directory to "dist" directory during build process:
-gulp.task('fonts', function() {
-  return gulp.src('app/fonts/**/*')
-  .pipe(gulp.dest('dist/fonts'))
-})
 
 
 // Delete "dist" directory at start of build process:
@@ -133,11 +125,13 @@ gulp.task('clean', function(callback) {
   return cache.clearAll(callback);
 })
 
+
 // Validate build HTML:
 gulp.task('validateHTML', function () {
   gulp.src('dist/**/*.html')
     .pipe(validateHTML())
 });
+
 
 // Lint Sass:
 gulp.task('scss-lint', function() {
@@ -147,12 +141,14 @@ gulp.task('scss-lint', function() {
     }));
 });
 
+
 // Lint JavaScript:
 gulp.task('js-lint', function() {
   return gulp.src(['app/js/**/*.js', '!app/js/modernizr-custombuild.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
 });
+
 
 // Deploy a build via SFTP to a web server:
 gulp.task('deploy', function () {
@@ -163,24 +159,4 @@ gulp.task('deploy', function () {
       authFile: 'gulp-sftp-key.json', // keep this file out of public repos by listing it within .gitignore, .hgignore, etc.
       auth: 'keyMain'
     }));
-});
-
-// Combine SVG files into one and reference them individually within HTML:
-
-gulp.task('svgstore', function () {
-  return gulp
-    .src('app/images/*.svg')
-    .pipe(svgmin(function (file) {
-      var prefix = path.basename(file.relative, path.extname(file.relative));
-      return {
-        plugins: [{
-          cleanupIDs: {
-            prefix: prefix + '-',
-            minify: true
-          }
-        }]
-      }
-    }))
-    .pipe(svgstore())
-    .pipe(gulp.dest('app/images'));
 });
