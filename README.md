@@ -18,6 +18,8 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 * Minify PNG, JPEG, GIF and SVG images
 
+* Inline images and fonts into CSS
+
 * Copy all files from a development directory into a distribution directory during the build process
 
 * Include HTML fragments using `<!--#include file="" -->` statements
@@ -68,4 +70,4 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 * To configure the SFTP plugin to upload to a server, you will need to set authentication in a `json` file. [See examples from the gulp-sftp plugin page](https://www.npmjs.com/package/gulp-sftp/#authentication)
 
-* For creating icon systems, this toolkit uses the PostCSS Assets plugin to inline images as Base64 into the CSS. To do this, change a CSS selector's `background:` property from the value `url` to `inline`. [More about inlining files with PostCSS Assets](https://github.com/assetsjs/postcss-assets#inlining-files)
+* This toolkit can inline images and fonts as Base64 into the CSS to eliminate the paths to these assets and reduce HTTP requests for better performance. To do this, change a CSS selector's `url` value to `inline`. [More about inlining files with PostCSS Assets](https://github.com/assetsjs/postcss-assets#inlining-files)
