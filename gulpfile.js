@@ -84,7 +84,7 @@ gulp.task('deploy', function () {
     .pipe(sftp({
       host: 'webprod.cdlib.org',
       remotePath: '/apps/webprod/apache/htdocs/gulptemplate/', // customize this path to match your web server
-      authFile: 'gulp-sftp-key.json', // keep this file out of public repos by listing it within .gitignore, .hgignore, etc.
+      authFile: 'gulp-sftp-key.json', // keep this file out of public repos by listing it within .gitignore, .hgignore, etc. See: https://www.npmjs.com/package/gulp-sftp/#authentication
       auth: 'keyMain'
     }));
 });
