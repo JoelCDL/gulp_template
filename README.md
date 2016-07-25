@@ -8,9 +8,7 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 * Process Sass and add sourcemaps for debugging CSS
 
-* Start a local browser with the index page at http://localhost:3000/
-
-* Reload HTML, CSS, and JavaScript in the browser immediately upon any changes to these files during development
+* Live reload HTML, CSS, and JavaScript in the browser immediately upon changing these files during development
 
 * Lint JavaScript and Sass during the development and build processes
 
@@ -18,9 +16,7 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 * Minify PNG, JPEG, GIF and SVG images
 
-* Inline images and fonts into CSS
-
-* Copy all files from a development directory into a distribution directory during the build process
+* Inline image and font files into the main stylesheet
 
 * Include HTML fragments using `<!--#include file="" -->` statements
 
@@ -28,7 +24,7 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 * Validate HTML after the build process
 
-* Deploy a build via SFTP from the distribution directory to a web server
+* Deploy a build of the dist directory via SFTP to a web server
 
 ## Requirements
 
@@ -46,19 +42,19 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 3. Run `$ gem install scss_lint` (for the Sass lint plugin)
 
-## Running
+## Running the Plugins
 
 * Cd to the directory where you installed the Gulp toolkit
 
 * Confirm that Gulp system is installed: `$ gulp hello`
 
-* During development, run `$ gulp` to watch changes to your files
+* During development, run `$ gulp` to watch live changes to your files
 
-* To create a build for a web server, run `$ gulp build`
-
-* To minify images, run `$ gulp minify-images` anytime after adding new, unoptimized images
+* To minify images during development, run `$ gulp minify-images` anytime after adding new, unoptimized images
 
 * To update the custom modernizr file based off of classes found in CSS, run `$ gulp modernizr` anytime after introducing new CSS features referenced in the [Modernizr development build](https://modernizr.com)
+
+* To create a build of finished files, run `$ gulp build`
 
 * To validate HTML of a build using the W3C validation service, run `$ gulp validateHTML`
 
@@ -66,8 +62,10 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 ## Notes
 
-* For details about the Gulp plugins and how they are configured, please read the comments in `gulpfile.js`
+* This tookit assumes you are scaffolding your project with an `/app` directory where you develop your files and a `/dist` directory for the finished files that will be distributed for production.
+
+* For details about using each Gulp plugin and how they can be configured, search them from the [gulp.js plugin page](http://gulpjs.com/plugins/) and read their documentation.
 
 * To configure the SFTP plugin to upload to a server, you will need to set authentication in a `json` file. [See examples from the gulp-sftp plugin page](https://www.npmjs.com/package/gulp-sftp/#authentication)
 
-* This toolkit can inline images and fonts as Base64 into the CSS to eliminate the paths to these assets and reduce HTTP requests for better performance. To do this, change a CSS selector's `url` value to `inline`. [More about inlining files with PostCSS Assets](https://github.com/assetsjs/postcss-assets#inlining-files)
+* This toolkit can inline image and font files as Base64 into the CSS to eliminate the paths to these assets and reduce HTTP requests for better performance. To do this, change a CSS selector's `url` value to `inline`. [More about inlining files with PostCSS Assets](https://github.com/assetsjs/postcss-assets#inlining-files)
