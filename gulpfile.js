@@ -48,7 +48,7 @@ gulp.task('default', function (callback) {
 // Run the build process 'build':
 gulp.task('build', function (callback) {
   runSequence('clean', 
-    ['scss-lint', 'js-lint', 'sass', 'useref'],
+    ['scss-lint', 'js-lint', 'sass', 'useref', 'copy-images'],
     callback
   )
 })
@@ -154,6 +154,13 @@ gulp.task('clean', function(callback) {
   del('dist');
   return cache.clearAll(callback);
 })
+
+
+// Copy images to dist directory during the build process:
+gulp.task('copy-images', function(){
+  return gulp.src('app/images/**')
+  .pipe(gulp.dest('dist/images'))
+});
 
 
 // Lint Sass:
