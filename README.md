@@ -64,9 +64,9 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 ## Notes
 
-* This tookit assumes you are scaffolding your project with an `/app` directory where you develop your files and a `/dist` directory for the finished files that will be distributed for production.
+* This tookit assumes you are scaffolding your project with an `/app` directory where you develop your files and a `/dist` directory for the finished files that will be distributed for production. This can be changed by updating the path references in `gulpfile.js`.
 
-* For details about using each Gulp plugin and how they can be configured, find them listed within `gulpfile.js` of this repo, then search them from the [gulp.js plugin page](http://gulpjs.com/plugins/) and read their documentation.
+* For details about using and configuring each Gulp plugin, find them listed within `gulpfile.js`, then search them from the [gulp.js plugin page](http://gulpjs.com/plugins/) and read their documentation.
 
 * To configure the SFTP plugin to upload to a server, you will need to set authentication in a `json` file. [See examples from the gulp-sftp plugin page](https://www.npmjs.com/package/gulp-sftp/#authentication)
 
