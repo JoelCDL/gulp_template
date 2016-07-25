@@ -95,7 +95,7 @@ gulp.task('deploy', function () {
 // These processes are not typically run from the command line but from the processes above.
 
 
-// Process Sass to CSS, add sourcemaps, optionally Base64 font and image files into CSS, and reload browser:
+// Process Sass to CSS, add sourcemaps, autoprefix CSS selectors, optionally Base64 font and image files into CSS, and reload browser:
 gulp.task('sass', function() {
   return gulp.src('app/scss/**/*.scss')
     .pipe(sourcemaps.init())
