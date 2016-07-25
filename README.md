@@ -64,10 +64,10 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 ## Notes
 
-* This tookit assumes you are scaffolding your project with an `/app` directory where you develop your files and a `/dist` directory for the finished files that will be distributed for production. This can be changed by updating the path references in `gulpfile.js`.
+This tookit assumes you are scaffolding your project with an `/app` directory where you develop your files and a `/dist` directory for the finished files that will be distributed for production. This can be changed by updating the path references in `gulpfile.js`.
 
-* For details about using and configuring each Gulp plugin, find them listed within `gulpfile.js`, then search them from the [gulp.js plugin page](http://gulpjs.com/plugins/) and read their documentation.
+For details about using and configuring each Gulp plugin, find them listed within `gulpfile.js`, then search them from the [gulp.js plugin page](http://gulpjs.com/plugins/) and read their documentation.
 
-* To configure the SFTP plugin to upload to a server, you will need to set authentication in a `json` file. [See examples from the gulp-sftp plugin page](https://www.npmjs.com/package/gulp-sftp/#authentication)
+This toolkit can inline image and font files as Base64 into the CSS to eliminate the paths to these assets and reduce HTTP requests for better performance. To do this, change a CSS selector's `url` value to `inline`. [More about inlining files with PostCSS Assets](https://github.com/assetsjs/postcss-assets#inlining-files)
 
-* This toolkit can inline image and font files as Base64 into the CSS to eliminate the paths to these assets and reduce HTTP requests for better performance. To do this, change a CSS selector's `url` value to `inline`. [More about inlining files with PostCSS Assets](https://github.com/assetsjs/postcss-assets#inlining-files)
+When running the `gulp-sftp` plugin via `$ gulp deploy`, it will return the error, `SFTP error or directory exists` for directories that are already on the server (like `/images`). This is not an actual error and the plugin will overwrite the directory with the uploaded contents, as expected.
