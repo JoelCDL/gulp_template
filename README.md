@@ -52,9 +52,9 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 * During development, run `$ gulp` to watch live changes to your files
 
-* To minify images during development, run `$ gulp minify-images` anytime after adding new, unoptimized images
+* To minify images during development, run `$ gulp minify-images` after adding new, unoptimized images
 
-* To update the custom modernizr file based off of classes found in CSS, run `$ gulp modernizr` anytime after introducing new CSS features referenced in the [Modernizr development build](https://modernizr.com)
+* To update the custom modernizr file based off of classes found in CSS, run `$ gulp modernizr` after introducing new CSS features referenced in the [Modernizr development build](https://modernizr.com)
 
 * To create a build of finished files, run `$ gulp build`
 
