@@ -1,7 +1,6 @@
+.DS_Store
 node_modules
 dist
-bower_components
-.DS_Store
 app/css/main.css
 *.css.map
 gulp-sftp-key.json
