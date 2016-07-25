@@ -30,7 +30,7 @@ var assets = require('postcss-assets');
 // Run these processes from the command line using the task name. Example: $ gulp hello 
 
 
-// Check that gulp is working by running 'hello':
+// Check that gulp is working:
 gulp.task('hello', function() {
   console.log('Gulp is installed and running correctly.');
 });
@@ -53,7 +53,7 @@ gulp.task('build', function (callback) {
 })
 
 
-// Minify all images by running 'minify-images':
+// Minify all images during development:
 gulp.task('minify-images', function(){
   return gulp.src('app/images/**')
   .pipe(imagemin())
@@ -71,7 +71,7 @@ gulp.task('modernizr', function() {
 });
 
 
-// Validate build HTML by running 'validateHTML':
+// Validate build HTML:
 gulp.task('validateHTML', function () {
   gulp.src('dist/**/*.html')
     .pipe(validateHTML())
@@ -95,7 +95,7 @@ gulp.task('deploy', function () {
 // These processes are not typically run from the command line but from the processes above.
 
 
-// Process sass to css, add sourcemaps, optionally inline (base64) font and image files into css, and reload browser:
+// Process Sass to CSS, add sourcemaps, optionally Base64 font and image files into CSS, and reload browser:
 gulp.task('sass', function() {
   return gulp.src('app/scss/**/*.scss')
     .pipe(sourcemaps.init())
@@ -137,7 +137,7 @@ gulp.task('browserSync', function() {
 })
 
 
-// Minify CSS, uglify JS, and concatenate files from paths within useref tags; include files:
+// Concatenate and minify CSS and JavaScript from paths within useref tags during build process; include files:
 gulp.task('useref', function(){
   return gulp.src(['app/**/*.html', '!app/includes/*'])
     .pipe(useref())
@@ -159,7 +159,7 @@ gulp.task('clean', function(callback) {
 gulp.task('scss-lint', function() {
   return gulp.src(['app/scss/**/*.scss', '!app/scss/vendor/**/*.scss'])
     .pipe(scsslint({
-      'config': 'scss-lint-config.yml'
+      'config': 'scss-lint-config.yml' // Settings for linters. See: https://github.com/brigade/scss-lint/tree/master/lib/scss_lint/linter
     }));
 });
 
