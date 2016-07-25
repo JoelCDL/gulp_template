@@ -11,10 +11,6 @@
 
 </head>
 <body>
-	
-	<div class="svg-sprite">
-		<!--#include file="images/images.svg" -->
-	</div>
 
 	<h1>Test Page for Gulp Template</h1>
 
@@ -58,24 +54,13 @@
 
 	<p>For screens that don't feature touch event capabilities, Modernizr is currently <span class="test-modernizr">not</span> presenting the "no-touchevents" class on the html element for use in styling alternatives to touch event features.</p>
 
-	<h3>SVG Sprite Generation</h3>
+	<h3>Background Images as Base64 within CSS</h3>
 
-	<p>If the Facebook, Instagram, and Pinterest icons appear below, then the SVG sprite was created successfully:</p>
+	<p>If the icons are appearing to the left of the text, then the images are successfully imbedded within the CSS as Base64:</p>
 
-	<svg class="icons">
-		<title>Facebook icon</title>
-  	<use xlink:href="#icon-facebook" />
-	</svg>
-
-	<svg class="icons">
-		<title>Instagram icon</title>
-	  <use xlink:href="#icon-instagram" />
-	</svg>
-
-	<svg class="icons">
-		<title>Pinterest icon</title>
-	  <use xlink:href="#icon-pinterest" />
-	</svg>
+	<p class="icon1">Facebook</p>
+	<p class="icon2">Instagram</p>
+	<p class="icon3">Pinterest</p>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<!-- build:js js/custom.min.js -->

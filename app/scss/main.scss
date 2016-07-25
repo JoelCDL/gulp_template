@@ -16,15 +16,6 @@ body {
   background-color: $bg-color;
 }
 
-.svg-sprite {
-  display: none;
-}
-
-.icons {
-  width: 50px;
-  height: 100%;
-}
-
 .testing-sass2 {
   &::after {
     content: 'Yes';
@@ -101,4 +92,24 @@ body {
 
 .no-touchevents .test-modernizr {
   display: none;
+}
+
+// Images inline within CSS as Base64 using PostCSS Assets Gulp plugin:
+
+.icon1 {
+  padding-left: 20px;
+  background: inline('../images/icon-facebook.svg') center left / 15px no-repeat;
+  font-size: 1.3em;
+}
+
+.icon2 {
+  padding-left: 20px;
+  background: inline('../images/icon-instagram.svg') center left / 15px no-repeat;
+  font-size: 1.3em;
+}
+
+.icon3 {
+  padding-left: 20px;
+  background: inline('../images/icon-pinterest.svg') center left / 15px no-repeat;
+  font-size: 1.3em;
 }
