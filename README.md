@@ -6,9 +6,11 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 ## Includes the Following Tasks
 
+* Live reload HTML, CSS, and JavaScript in the browser immediately upon changing these files during development
+
 * Process Sass and add sourcemaps for debugging CSS
 
-* Live reload HTML, CSS, and JavaScript in the browser immediately upon changing these files during development
+* Automatically add browser vendor prefixes to CSS selectors that need them
 
 * Lint JavaScript and Sass during the development and build processes
 
@@ -64,7 +66,7 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 * This tookit assumes you are scaffolding your project with an `/app` directory where you develop your files and a `/dist` directory for the finished files that will be distributed for production.
 
-* For details about using each Gulp plugin and how they can be configured, search them from the [gulp.js plugin page](http://gulpjs.com/plugins/) and read their documentation.
+* For details about using each Gulp plugin and how they can be configured, find them listed within `gulpfile.js` of this repo, then search them from the [gulp.js plugin page](http://gulpjs.com/plugins/) and read their documentation.
 
 * To configure the SFTP plugin to upload to a server, you will need to set authentication in a `json` file. [See examples from the gulp-sftp plugin page](https://www.npmjs.com/package/gulp-sftp/#authentication)
 
