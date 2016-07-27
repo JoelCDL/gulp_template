@@ -12,7 +12,6 @@ var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
 var minifyCSS = require('gulp-clean-css');
 var imagemin = require('gulp-imagemin');
-var cache = require('gulp-cache');
 var del = require('del');
 var modernizr = require('gulp-modernizr');
 var runSequence = require('run-sequence');
@@ -150,9 +149,8 @@ gulp.task('useref', function(){
 
 
 // Delete 'dist' directory at start of build process:
-gulp.task('clean', function(callback) {
-  del('dist');
-  return cache.clearAll(callback);
+gulp.task('clean', function() {
+  return del('dist');
 })
 
 
