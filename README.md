@@ -62,9 +62,18 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 * To deploy a build to a web server, run `$ gulp deploy`
 
-## Notes
+## Scaffolding
 
-This tookit assumes you are scaffolding your project with an `/app` directory where you develop your files and a `/dist` directory for the finished files that will be distributed for production. This can be changed by updating the path references in `gulpfile.js`.
+The **app** directory is where development takes place, where files are created and modified. When a build is run, it creates a **dist** directory of finished files, ready for distribution to production environments. The **dist** directory is ignored by Git, since we don't need to check our builds into source control. Each time a build is created, it will overwrite all previous contents within **dist**. The **app** and **dist** directory names can be changed by updating the path references in `gulpfile.js`.
+
+The following files and directories configure the Gulp Toolkit. The **node_modules** directory is ignored by Git.
+
+* gulpfile.js
+* node_modules
+* package.json
+* scss-lint-config.yml
+
+## Notes
 
 For details about using and configuring each Gulp plugin, find them listed within `gulpfile.js`, then search them from the [gulp.js plugin page](http://gulpjs.com/plugins/) and read their documentation.
 
