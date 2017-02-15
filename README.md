@@ -12,8 +12,6 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 * Automatically add browser vendor prefixes to CSS selectors that need them
 
-* Lint JavaScript and Sass during the development and build processes
-
 * Concatenate and minify CSS and JavaScript during the build process
 
 * Minify PNG, JPEG, GIF and SVG images
@@ -33,8 +31,6 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 * node.js
 
 * npm
-
-* ruby (for the Sass lint plugin)
 
 ## Installation
 

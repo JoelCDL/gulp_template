@@ -16,7 +16,6 @@ var del = require('del');
 var modernizr = require('gulp-modernizr');
 var runSequence = require('run-sequence');
 var validateHTML = require('gulp-w3cjs');
-var scsslint = require('gulp-scss-lint');
 var jshint = require('gulp-jshint');
 var lbInclude = require('gulp-lb-include');
 var ssi = require('browsersync-ssi');
@@ -47,7 +46,7 @@ gulp.task('default', function (callback) {
 // Run the build process 'build':
 gulp.task('build', function (callback) {
   runSequence('clean', 
-    ['scss-lint', 'js-lint', 'sass', 'useref', 'copy-images'],
+    ['js-lint', 'sass', 'useref', 'copy-images'],
     callback
   )
 })
@@ -113,9 +112,9 @@ gulp.task('sass', function() {
 
 
 // Watch sass, html, and js and reload browser if any changes:
-gulp.task('watch', ['browserSync', 'sass', 'scss-lint', 'js-lint'], function (){
+gulp.task('watch', ['browserSync', 'sass'], function (){
   gulp.watch('app/scss/**/*.scss', ['sass']);
-  gulp.watch('app/scss/**/*.scss', ['scss-lint']);
+  gulp.watch('app/scss/**/*.scss');
   gulp.watch('app/js/**/*.js', ['js-lint']);
   gulp.watch('app/**/*.html', browserSync.reload); 
   gulp.watch('app/js/**/*.js', browserSync.reload); 
@@ -158,15 +157,6 @@ gulp.task('clean', function() {
 gulp.task('copy-images', function(){
   return gulp.src('app/images/**')
   .pipe(gulp.dest('dist/images'))
-});
-
-
-// Lint Sass:
-gulp.task('scss-lint', function() {
-  return gulp.src(['app/scss/**/*.scss', '!app/scss/vendor/**/*.scss'])
-    .pipe(scsslint({
-      'config': 'scss-lint-config.yml' // Settings for linters. See: https://github.com/brigade/scss-lint/tree/master/lib/scss_lint/linter
-    }));
 });
 
 

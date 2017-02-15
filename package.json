@@ -22,7 +22,6 @@
     "gulp-modernizr": "",
     "gulp-postcss": "",
     "gulp-sass": "",
-    "gulp-scss-lint": "",
     "gulp-sftp": "",
     "gulp-sourcemaps": "",
     "gulp-uglify": "",
