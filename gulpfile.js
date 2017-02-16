@@ -22,6 +22,7 @@ var ssi = require('browsersync-ssi');
 var sftp = require('gulp-sftp');
 var postcss = require('gulp-postcss');
 var assets = require('postcss-assets');
+var ghPages = require('gulp-gh-pages');
 
 
 // ***** Plugins That Run a Single Process ***** //
@@ -77,17 +78,12 @@ gulp.task('validateHTML', function () {
 });
 
 
-// Deploy a build via SFTP to a web server by running 'deploy':
-gulp.task('deploy', function () {
-  return gulp.src('dist/**')
-    .pipe(sftp({
-      host: 'webprod.cdlib.org',
-      remotePath: '/apps/webprod/apache/htdocs/gulptemplate/', // customize this path to match your web server
-      authFile: 'gulp-sftp-key.json', // keep this file out of public repos by listing it within .gitignore, .hgignore, etc. See: https://www.npmjs.com/package/gulp-sftp/#authentication
-      auth: 'keyMain'
-    }));
-});
+// Deploy a build to the 'gh-pages' GitHub branch by running 'deploy':
 
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
+});
 
 // ***** Plugins That Automatically Run As Part of a Single Process ***** //
 
