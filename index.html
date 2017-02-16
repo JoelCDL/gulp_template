@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<title>Gulp Template</title>
+
+	<link rel="stylesheet" href="css/main.min.css">
+
+</head>
+<body>
+
+	<h1>Test Page for Gulp Template</h1>
+
+	<p>(here is some added text)</p>
+
+	<p>All of the tests below should pass while viewing the page in your browser as a live app (after running "gulp") and as a finished build (after running "gulp build")</p>
+
+	<p><a href="https://github.com/JoelCDL/gulp_template">View this project on GitHub</a> for more information.</p>
+
+	<h2>Feature Tests</h2>
+
+	<h3>Sass and CSS</h3>
+
+	<p class="testing-sass2">If Sass is compiling and CSS is loading successfully, then return "Yes" (or nothing if unsuccessful): </p>
+
+	<h3>HTML Fragments</h3>
+	
+	
+<p>This text is being included via #include file="" directive.</p>
+
+
+<p>This text is being included within an include.</p>
+
+
+<!-- Note that #include virual="" doesn't work with lbInclude plugin -->
+
+	<h3>Loading of Scripts</h3>
+
+	<p>Custom jQuery is <span class="jquery-test-fail">not</span> working from script #1.</p>
+
+	<p class="disappear">If clicking this text makes it disappear, then script #2 is loading.</p>
+
+	<p>After a build is created, both scripts above will be concatenated into one and should still work.</p>
+
+	<h3>HTML Validation</h3>
+
+	<p>The folowing image contains the validation error "sizes must not be empty" that will return in your terminal after running "gulp validateHTML":</p>
+
+	<!-- The img below will throw an HTML validation error via the w3cjs task ("sizes" must not be empty): -->
+
+	<p>
+		<img
+	    src="/path1/"
+	    srcset="/path1/ 60w, /path2/ 50w"
+	    sizes=""
+	    alt="[image containing validation error]">
+	</p>
+
+	<h3>Modernizr</h3>
+
+	<p>For screens that don't feature touch event capabilities, Modernizr is currently <span class="test-modernizr">not</span> presenting the "no-touchevents" class on the html element for use in styling alternatives to touch event features.</p>
+
+	<h3>Background Images as Base64 within CSS</h3>
+
+	<p>If the icons are appearing to the left of the text, then the images are successfully imbedded within the CSS as Base64:</p>
+
+	<p class="icon1">Facebook</p>
+	<p class="icon2">Instagram</p>
+	<p class="icon3">Pinterest</p>
+
+	<h3>Loading of Images</h3>
+
+	<p>Images are loading from the directory /images if you see the image below:</p>
+
+	<img src="images/interior_design1.jpg" alt="">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="js/custom.min.js"></script>
+	
+</body>
+</html>
