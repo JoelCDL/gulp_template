@@ -1,4 +1,6 @@
 .DS_Store
+dist
+.publish
 node_modules
 app/css/main.css
 *.css.map
