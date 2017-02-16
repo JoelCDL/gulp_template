@@ -24,7 +24,7 @@ Inspired by https://css-tricks.com/gulp-for-beginners
 
 * Validate HTML after the build process
 
-* Deploy a build of the dist directory via SFTP to a web server
+* Deploy a build to GitHub Pages
 
 ## Requirements
 
